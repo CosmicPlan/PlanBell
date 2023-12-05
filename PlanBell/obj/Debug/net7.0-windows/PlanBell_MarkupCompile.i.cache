@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-I:\Git\PlanBell\PlanBell\PlanBell\obj\Debug\net7.0-windows\
+D:\My\XstPlan\PlanBell\PlanBell\obj\Debug\net7.0-windows\
 PlanBell
 none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
-I:\Git\PlanBell\PlanBell\PlanBell\App.xaml
-1-834700163
+D:\My\XstPlan\PlanBell\PlanBell\App.xaml
+2888614779
 1282391436
-8442209837
-234434749635
-Views\Windows\MainWindow.xaml;
+1455199747
+234523017486
+Views\Pages\Home.xaml;Views\Windows\MainWindow.xaml;
 
 True
 

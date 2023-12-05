@@ -7,21 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Wpf.Ui.Mvvm.Contracts;
 
 namespace PlanBell.Services
 {
     internal class ApplicationHostService : IHostedService
     {
         private readonly IServiceProvider _serviceProvider;
-        public ApplicationHostService(IServiceProvider serviceProvider)
+        private readonly INavigationService _navigationService;
+        private readonly IPageService _pageService;
+        private readonly IThemeService _themeService;
+        private readonly ITaskBarService _taskBarService;
+        private INavigationWindow _navigationWindow;
+
+        public ApplicationHostService(
+        IServiceProvider serviceProvider,
+        INavigationService navigationService,
+        IPageService pageService,
+        IThemeService themeService,
+        ITaskBarService taskBarService
+            )
         {
             _serviceProvider = serviceProvider;
+            _navigationService = navigationService;
+            _pageService = pageService;
+            _themeService = themeService;
+            _taskBarService = taskBarService;
         }
+
         public async Task StartAsync(CancellationToken cancellationToken)
         {
+            PrepareNavigation();
             await HandleActivationAsync();
-
         }
+
         private async Task HandleActivationAsync()
         {
             await Task.CompletedTask;
@@ -29,11 +48,12 @@ namespace PlanBell.Services
             // 检查应用程序是否已经启动，如果没有则创建导航窗口
             if (!Application.Current.Windows.OfType<MainWindow>().Any())
             {
-                var navigationWindow = _serviceProvider.GetRequiredService<MainWindow>();
-                navigationWindow.Loaded += OnNavigationWindowLoaded;
-                navigationWindow.Show();
+                _navigationWindow =
+                 _serviceProvider.GetService(typeof(INavigationWindow)) as INavigationWindow;
+                _navigationWindow!.ShowWindow();
             }
         }
+
         private void OnNavigationWindowLoaded(object sender, RoutedEventArgs e)
         {
             if (sender is not MainWindow navigationWindow)
@@ -42,11 +62,16 @@ namespace PlanBell.Services
             }
 
             // 加载导航窗口时，如果应用程序已经启动，则显示导航窗口
-
         }
+
         public async Task StopAsync(CancellationToken cancellationToken)
         {
             await Task.CompletedTask;
+        }
+
+        private void PrepareNavigation()
+        {
+            _navigationService.SetPageService(_pageService);
         }
     }
 }

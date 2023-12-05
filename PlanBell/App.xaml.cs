@@ -7,13 +7,18 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PlanBell.Services;
+using PlanBell.Services.IServices;
+using PlanBell.ViewModels.Pages;
 using PlanBell.ViewModels.Windows;
+using PlanBell.Views.Pages;
 using PlanBell.Views.Windows;
 using System.IO;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Threading;
 using Wpf.Ui;
+using Wpf.Ui.Mvvm.Contracts;
+using Wpf.Ui.Mvvm.Services;
 
 namespace PlanBell
 {
@@ -33,11 +38,30 @@ namespace PlanBell
             .ConfigureServices((context, services) =>
             {
                 services.AddHostedService<ApplicationHostService>();
-                services.AddSingleton<MainWindow>();
-                services.AddSingleton<MainWindowViewModel>();
-                services.AddSingleton<INavigationService, NavigationService>();
+                // 主题操作
+                services.AddSingleton<IThemeService, ThemeService>();
+                // 任务栏操作
+                services.AddSingleton<ITaskBarService, TaskBarService>();
                 services.AddSingleton<ISnackbarService, SnackbarService>();
-                services.AddSingleton<IContentDialogService, ContentDialogService>();
+                // 对话框服务
+                services.AddSingleton<IDialogService, DialogService>();
+
+                // 托盘图标
+                services.AddSingleton<INotifyIconService, CustomNotifyIconService>();
+
+                // 页面解析程序服务
+                services.AddSingleton<IPageService, PageService>();
+                // 页面解析程序服务
+                services.AddSingleton<ITestWindowService, TestWindowService>();
+                services.AddSingleton<INavigationService, NavigationService>();
+
+                //// 包含导航的服务，与INavigationWindow相同。。。但没有窗户
+                //services.AddSingleton<INavigationService, NavigationService>();
+                services.AddScoped<INavigationWindow, MainWindow>();
+                services.AddScoped<MainWindowViewModel>();
+
+                services.AddScoped<Views.Pages.Home>();
+                services.AddScoped<HomeViewModel>();
             }).Build();
 
         /// <summary>

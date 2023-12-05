@@ -1,31 +1,209 @@
-﻿<ui:FluentWindow
+﻿<ui:UiWindow
     x:Class="PlanBell.Views.Windows.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:PlanBell"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:PlanBell.Views.Pages"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="MainWindow"
-    Width="800"
-    Height="450"
-    ui:Design.Background="{DynamicResource ApplicationBackgroundBrush}"
-    ui:Design.Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    Width="1230"
+    Height="730"
     ExtendsContentIntoTitleBar="True"
     WindowBackdropType="Mica"
     WindowCornerPreference="Round"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
+    <ui:UiWindow.Resources>
+        <Style x:Key="NavigationStoreFocusVisualStyle1" TargetType="{x:Type Control}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Control}">
+                        <Grid/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ui:UiWindow.Resources>
     <Grid>
-        <ui:TitleBar
-            x:Name="TitleBar"
-            Title="{Binding ViewModel.ApplicationTitle}"
-            Grid.Row="0"
-            CloseWindowByDoubleClickOnIcon="True">
-            <ui:TitleBar.Icon>
-                <ui:ImageIcon Source="pack://application:,,,/Assets/wpfui-icon-256.png" />
-            </ui:TitleBar.Icon>
-        </ui:TitleBar>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+        <Grid
+            x:Name="RootMainGrid"
+            Grid.Row="1"
+            Margin="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--  应用程序的主导航.  -->
+            <ui:NavigationStore FocusVisualStyle="{DynamicResource NavigationStoreFocusVisualStyle1}"
+                x:Name="RootNavigation"
+                Grid.Column="0"
+                Margin="6,0,6,0"
+                FontSize="40"
+                Frame="{Binding ElementName=RootFrame}"
+                Navigated="RootNavigation_OnNavigated"
+                Precache="False"
+                SelectedPageIndex="-1"
+                TransitionDuration="200"
+                TransitionType="FadeInWithSlide">
+                <ui:NavigationStore.Items>
+                    <ui:NavigationItem
+                        Cache="True"
+                        Content="首页"
+                        Icon="Home48"
+                        PageTag="dashboard"
+                        PageType="{x:Type pages:Home}" />
+                    <ui:NavigationSeparator />
+                    <ui:NavigationItem
+                        Content="日程计划"
+                        FontSize="50"
+                        Icon="Fluent24"
+                        PageType="{x:Type pages:Home}" />
+                    <ui:NavigationItem
+                        Content="番茄工作"
+                        FontSize="6"
+                        Icon="ClockAlarm24"
+                        PageType="{x:Type pages:Home}" />
+
+                    <ui:NavigationItem
+                        Content="健康"
+                        FontSize="50"
+                        Icon="Doctor24"
+                        PageType="{x:Type pages:Home}" />
+                </ui:NavigationStore.Items>
+
+                <ui:NavigationStore.Footer>
+                    <!--  不指向页面的导航元素可以用作按钮.  -->
+                    <ui:NavigationItem
+                        Click="NavigationButtonTheme_OnClick"
+                        Content="设置"
+                        Icon="Settings24" />
+                    <ui:NavigationItem
+                        Click="NavigationButtonTheme_OnClick"
+                        Content="主题"
+                        Icon="DarkTheme24" />
+                </ui:NavigationStore.Footer>
+            </ui:NavigationStore>
+
+            <!--  在此元素中显示页面.  -->
+            <Border
+                Grid.Column="1"
+                Background="{DynamicResource ControlFillColorDefaultBrush}"
+                CornerRadius="8,0,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Frame x:Name="RootFrame" Grid.Row="1" />
+                    <ui:Breadcrumb
+                        Grid.Row="0"
+                        Margin="18"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        FontSize="24"
+                        Navigation="{Binding ElementName=RootNavigation}" />
+
+                    <ui:Snackbar
+                        x:Name="RootSnackbar"
+                        Title="Hello World!"
+                        Grid.Row="1"
+                        MaxWidth="600"
+                        Appearance="Secondary"
+                        CloseButtonEnabled="True"
+                        Icon="PuzzlePiece24"
+                        Message="Remember that the Heat Death of Universe is coming someday, no time to explain - let's go!"
+                        Timeout="5000" />
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid
+            x:Name="RootWelcomeGrid"
+            Grid.Row="1"
+            Visibility="Hidden">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Image
+                    MaxWidth="180"
+                    RenderOptions.BitmapScalingMode="HighQuality"
+                    Source="pack://application:,,,/Resources/geo_icons.png" />
+            </Grid>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <ui:ProgressRing IsIndeterminate="True" />
+                <TextBlock
+                    Margin="0,12,0,0"
+                    FontSize="16"
+                    FontWeight="Medium"
+                    Text="Preparing app for you."
+                    TextAlignment="Center"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+        </Grid>
+
+        <ui:Dialog
+            x:Name="RootDialog"
+            Title="WPF UI"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            ButtonLeftName="确认"
+            ButtonRightName="取消" />
+
+        <ui:TitleBar
+            Title="WPF UI - Fluent design system"
+            Grid.Row="0"
+            ForceShutdown="False"
+            Icon="pack://application:,,,/Resources/wpfui.png"
+            MinimizeToTray="False"
+            ShowClose="True"
+            ShowHelp="False"
+            ShowMaximize="True"
+            ShowMinimize="True"
+            UseSnapLayout="True">
+            <ui:TitleBar.Tray>
+                <ui:NotifyIcon
+                    FocusOnLeftClick="True"
+                    Icon="pack://application:,,,/Resources/wpfui.png"
+                    LeftClick="NotifyIcon_LeftClick"
+                    MenuOnRightClick="True"
+                    TooltipText="WPF UI">
+                    <ui:NotifyIcon.Menu>
+                        <ContextMenu>
+                            <ui:MenuItem
+                                Click="TrayMenuItem_OnClick"
+                                Header="Home"
+                                SymbolIcon="Library28"
+                                Tag="home" />
+                            <ui:MenuItem
+                                Click="TrayMenuItem_OnClick"
+                                Header="Save"
+                                SymbolIcon="Save24"
+                                Tag="save" />
+                            <ui:MenuItem
+                                Click="TrayMenuItem_OnClick"
+                                Header="Open"
+                                SymbolIcon="Folder28"
+                                Tag="open" />
+                            <Separator />
+                            <ui:MenuItem
+                                Click="TrayMenuItem_OnClick"
+                                Header="Reload"
+                                SymbolIcon="ArrowClockwise24"
+                                Tag="reload" />
+                        </ContextMenu>
+                    </ui:NotifyIcon.Menu>
+                </ui:NotifyIcon>
+            </ui:TitleBar.Tray>
+        </ui:TitleBar>
     </Grid>
-</ui:FluentWindow>
+</ui:UiWindow>

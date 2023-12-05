@@ -895,19 +895,16 @@
         }
       },
       "WPF-UI/2.1.0": {
-        "type": "package",
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
           "System.Drawing.Common": "7.0.0"
         },
         "compile": {
-          "lib/net7.0-windows7.0/Wpf.Ui.dll": {
-            "related": ".xml"
-          }
+          "bin/placeholder/WPF-UI.dll": {}
         },
         "runtime": {
-          "lib/net7.0-windows7.0/Wpf.Ui.dll": {
-            "related": ".xml"
-          }
+          "bin/placeholder/WPF-UI.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WPF"
@@ -2287,29 +2284,9 @@
       ]
     },
     "WPF-UI/2.1.0": {
-      "sha512": "utQIQu44BXrYMq4hj/tH86FOSxD0hNBPWqAfqIW9rFhvsFauPicARBOqIZIro1OGQGv434dyGWA8EmriXKCd4g==",
-      "type": "package",
-      "path": "wpf-ui/2.1.0",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net462/Wpf.Ui.dll",
-        "lib/net462/Wpf.Ui.xml",
-        "lib/net472/Wpf.Ui.dll",
-        "lib/net472/Wpf.Ui.xml",
-        "lib/net481/Wpf.Ui.dll",
-        "lib/net481/Wpf.Ui.xml",
-        "lib/net6.0-windows7.0/Wpf.Ui.dll",
-        "lib/net6.0-windows7.0/Wpf.Ui.xml",
-        "lib/net7.0-windows7.0/Wpf.Ui.dll",
-        "lib/net7.0-windows7.0/Wpf.Ui.xml",
-        "tools/VisualStudioToolsManifest.xml",
-        "wpf-ui.2.1.0.nupkg.sha512",
-        "wpf-ui.nuspec",
-        "wpfui.png"
-      ]
+      "type": "project",
+      "path": "../../../wpfui-2.1.0/src/Wpf.Ui/Wpf.Ui.csproj",
+      "msbuildProject": "../../../wpfui-2.1.0/src/Wpf.Ui/Wpf.Ui.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2321,23 +2298,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\D-Hisim\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\17332\\.nuget\\packages\\": {},
+    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My\\XstPlan\\PlanBell\\PlanBell\\PlanBell.csproj",
+      "projectUniqueName": "I:\\Git\\PlanBell\\PlanBell\\PlanBell\\PlanBell.csproj",
       "projectName": "PlanBell",
-      "projectPath": "D:\\My\\XstPlan\\PlanBell\\PlanBell\\PlanBell.csproj",
-      "packagesPath": "C:\\Users\\D-Hisim\\.nuget\\packages\\",
-      "outputPath": "D:\\My\\XstPlan\\PlanBell\\PlanBell\\obj\\",
+      "projectPath": "I:\\Git\\PlanBell\\PlanBell\\PlanBell\\PlanBell.csproj",
+      "packagesPath": "C:\\Users\\17332\\.nuget\\packages\\",
+      "outputPath": "I:\\Git\\PlanBell\\PlanBell\\PlanBell\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\D-Hisim\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\17332\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2352,7 +2329,11 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "I:\\Git\\wpfui-2.1.0\\src\\Wpf.Ui\\Wpf.Ui.csproj": {
+              "projectPath": "I:\\Git\\wpfui-2.1.0\\src\\Wpf.Ui\\Wpf.Ui.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -2376,10 +2357,6 @@
           "Microsoft.Extensions.Hosting": {
             "target": "Package",
             "version": "[7.0.1, )"
-          },
-          "WPF-UI": {
-            "target": "Package",
-            "version": "[2.1.0, )"
           }
         },
         "imports": [
@@ -2401,7 +2378,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -19,7 +19,7 @@ using Wpf.Ui.Mvvm.Interfaces;
 namespace PlanBell.Views.Pages
 {
     /// <summary>
-    /// Home.xaml 的交互逻辑
+    ///首页 Home.xaml 的交互逻辑
     /// </summary>
     public partial class Home : INavigableView<HomeViewModel>
     {

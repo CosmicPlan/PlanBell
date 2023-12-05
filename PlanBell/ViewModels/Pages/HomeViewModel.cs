@@ -29,18 +29,13 @@ namespace PlanBell.ViewModels.Pages
 
         public void OnNavigatedFrom()
         {
-            System.Diagnostics.Debug.WriteLine(
-              $"INFO | {typeof(HomeViewModel)} navigated",
-              "Wpf.Ui.Demo"
-          );
+           
+     
         }
 
         public void OnNavigatedTo()
         {
-            System.Diagnostics.Debug.WriteLine(
-          $"INFO | {typeof(HomeViewModel)} navigated",
-          "Wpf.Ui.Demo"
-      );
+           
         }
     }
 }

@@ -20,7 +20,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Control}">
-                        <Grid/>
+                        <Grid />
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -41,12 +41,12 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <!--  应用程序的主导航.  -->
-            <ui:NavigationStore FocusVisualStyle="{DynamicResource NavigationStoreFocusVisualStyle1}"
+            <!--  主导航  -->
+            <ui:NavigationStore
                 x:Name="RootNavigation"
                 Grid.Column="0"
                 Margin="6,0,6,0"
-                FontSize="40"
+                FocusVisualStyle="{DynamicResource NavigationStoreFocusVisualStyle1}"
                 Frame="{Binding ElementName=RootFrame}"
                 Navigated="RootNavigation_OnNavigated"
                 Precache="False"
@@ -65,26 +65,26 @@
                         Content="日程计划"
                         FontSize="50"
                         Icon="Fluent24"
-                        PageType="{x:Type pages:Home}" />
+                        PageType="{x:Type pages:SchedulePlan}" />
                     <ui:NavigationItem
                         Content="番茄工作"
                         FontSize="6"
                         Icon="ClockAlarm24"
-                        PageType="{x:Type pages:Home}" />
+                        PageType="{x:Type pages:PomodoroWork}" />
 
                     <ui:NavigationItem
                         Content="健康"
                         FontSize="50"
                         Icon="Doctor24"
-                        PageType="{x:Type pages:Home}" />
+                        PageType="{x:Type pages:Health}" />
                 </ui:NavigationStore.Items>
 
                 <ui:NavigationStore.Footer>
                     <!--  不指向页面的导航元素可以用作按钮.  -->
                     <ui:NavigationItem
-                        Click="NavigationButtonTheme_OnClick"
                         Content="设置"
-                        Icon="Settings24" />
+                        Icon="Settings24"
+                        PageType="{x:Type pages:Settings}" />
                     <ui:NavigationItem
                         Click="NavigationButtonTheme_OnClick"
                         Content="主题"
@@ -124,7 +124,7 @@
                 </Grid>
             </Border>
         </Grid>
-
+        <!--  SplashScreen启动屏幕  -->
         <Grid
             x:Name="RootWelcomeGrid"
             Grid.Row="1"
@@ -145,12 +145,12 @@
                     Margin="0,12,0,0"
                     FontSize="16"
                     FontWeight="Medium"
-                    Text="Preparing app for you."
+                    Text="程序正在加载中........."
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
             </StackPanel>
         </Grid>
-
+        <!--  RootDialog  -->
         <ui:Dialog
             x:Name="RootDialog"
             Title="WPF UI"
@@ -158,9 +158,9 @@
             Grid.RowSpan="2"
             ButtonLeftName="确认"
             ButtonRightName="取消" />
-
+        <!--  TitleBar  -->
         <ui:TitleBar
-            Title="WPF UI - Fluent design system"
+            Title="PlanBell - 番茄钟助手"
             Grid.Row="0"
             ForceShutdown="False"
             Icon="pack://application:,,,/Resources/wpfui.png"

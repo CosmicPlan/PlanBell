@@ -587,17 +587,6 @@
             "fileVersion": "7.0.22.51805"
           }
         }
-      },
-      "WPF-UI/2.1.0": {
-        "dependencies": {
-          "System.Drawing.Common": "7.0.0"
-        },
-        "runtime": {
-          "lib/net7.0-windows7.0/Wpf.Ui.dll": {
-            "assemblyVersion": "2.1.0.0",
-            "fileVersion": "2.1.0.0"
-          }
-        }
       }
     }
   },
@@ -909,13 +898,6 @@
       "sha512": "sha512-DaGSsVqKsn/ia6RG8frjwmJonfos0srquhw09TlT8KRw5I43E+4gs+/bZj4K0vShJ5H9imCuXupb4RmS+dBy3w==",
       "path": "system.text.json/7.0.0",
       "hashPath": "system.text.json.7.0.0.nupkg.sha512"
-    },
-    "WPF-UI/2.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-utQIQu44BXrYMq4hj/tH86FOSxD0hNBPWqAfqIW9rFhvsFauPicARBOqIZIro1OGQGv434dyGWA8EmriXKCd4g==",
-      "path": "wpf-ui/2.1.0",
-      "hashPath": "wpf-ui.2.1.0.nupkg.sha512"
     }
   }
 }

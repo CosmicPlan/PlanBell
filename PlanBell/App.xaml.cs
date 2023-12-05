@@ -62,6 +62,19 @@ namespace PlanBell
 
                 services.AddScoped<Views.Pages.Home>();
                 services.AddScoped<HomeViewModel>();
+
+                services.AddScoped<Views.Pages.PomodoroWork>();
+                services.AddScoped<PomodoroWorkViewModel>();
+
+                services.AddScoped<Views.Pages.SchedulePlan>();
+                services.AddScoped<SchedulePlanViewModel>();
+
+                services.AddScoped<Views.Pages.Health>();
+                services.AddScoped<HealthViewModel>();
+
+                services.AddScoped<Views.Pages.Settings>();
+                services.AddScoped<SettingsViewModel>();
+
             }).Build();
 
         /// <summary>

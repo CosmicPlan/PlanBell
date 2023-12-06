@@ -60,6 +60,14 @@
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
               "version": "[7.0.1, )"
+            },
+            "SqlSugar.IOC": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
+            "SqlSugarCore": {
+              "target": "Package",
+              "version": "[5.1.4.126, )"
             }
           },
           "imports": [

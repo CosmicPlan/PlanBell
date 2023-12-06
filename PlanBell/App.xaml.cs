@@ -8,10 +8,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PlanBell.Services;
 using PlanBell.Services.IServices;
+using PlanBell.Sqlsugar;
 using PlanBell.ViewModels.Pages;
 using PlanBell.ViewModels.Windows;
 using PlanBell.Views.Pages;
 using PlanBell.Views.Windows;
+using SqlSugar.IOC;
 using System.IO;
 using System.Reflection;
 using System.Windows;
@@ -37,6 +39,14 @@ namespace PlanBell
             .ConfigureAppConfiguration(c => { c.SetBasePath(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location)); })
             .ConfigureServices((context, services) =>
             {
+
+                SugarIocServices.AddSqlSugar(new IocConfig() 
+                {
+                    ConnectionString=@"DataSource="+Environment.CurrentDirectory+@"\DataBase\PB.db",
+                    DbType=IocDbType.Sqlite,
+                    IsAutoCloseConnection=true,
+                });
+                InitTable.InitDb();
                 services.AddHostedService<ApplicationHostService>();
                 // 主题操作
                 services.AddSingleton<IThemeService, ThemeService>();

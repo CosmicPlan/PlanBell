@@ -31,10 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\wpfui-2.1.0\src\Wpf.Ui\Wpf.Ui.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Assets\wpfui-icon-256.png" />
     <Resource Include="Assets\wpfui-icon-1024.png" />
     <Resource Include="Resources\fluent-ui-microsoft.png" />
@@ -45,6 +41,10 @@
   <ItemGroup>
     <Folder Include="Sqlsugar\Service\" />
     <Folder Include="Sqlsugar\Service\IService\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\wpfui-2.1.0\src\Wpf.Ui\Wpf.Ui.csproj" />
   </ItemGroup>
 
 </Project>

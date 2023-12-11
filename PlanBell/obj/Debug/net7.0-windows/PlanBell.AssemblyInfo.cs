@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlanBell")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3ed065b7a150d220088371dd7b29d2d1e928fb2")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlanBell")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlanBell")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

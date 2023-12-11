@@ -39,8 +39,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controls\" />
     <Folder Include="Sqlsugar\Service\" />
     <Folder Include="Sqlsugar\Service\IService\" />
+    <Folder Include="Style\Controls\" />
+    <Folder Include="Themes\Controls\" />
   </ItemGroup>
 
   <ItemGroup>

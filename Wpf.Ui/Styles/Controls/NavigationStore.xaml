@@ -1,4 +1,4 @@
-<!--
+﻿<!--
     This Source Code Form is subject to the terms of the MIT License.
     If a copy of the MIT was not distributed with this file, You can obtain one at https://opensource.org/licenses/MIT.
     Copyright (C) Leszek Pomianowski and WPF UI Contributors.
@@ -70,12 +70,12 @@
     </Style>
 
     <Style x:Key="NavigationStoreItem" TargetType="{x:Type controls:NavigationItem}">
-        <Setter Property="Width" Value="80" />
-        <Setter Property="Height" Value="80" />
-        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="Width" Value="60" />
+        <Setter Property="Height" Value="60" />
+        <Setter Property="Margin" Value="0,0,0,4" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="IconSize" Value="30" />
+        <Setter Property="IconSize" Value="24" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="Background">
@@ -118,7 +118,7 @@
                             <Rectangle
                                 x:Name="ActiveRectangle"
                                 Width="4"
-                                Height="30"
+                                Height="24"
                                 Margin="-4,0,0,0"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
@@ -153,13 +153,13 @@
                                 <Grid
                                     x:Name="ContentGrid"
                                     Grid.Row="1"
-                                    Height="30"
+                                    Height="15"
                                     Margin="0,2,0,0">
                                     <ContentPresenter
                                         x:Name="ElementContentPresenter"
                                         HorizontalAlignment="Center"
                                         Content="{TemplateBinding Content}"
-                                        TextElement.FontSize="15"
+                                        TextElement.FontSize="10"
                                         TextElement.Foreground="{TemplateBinding Foreground}" />
                                 </Grid>
                             </Grid>
@@ -187,7 +187,7 @@
                                         <DoubleAnimation
                                             Storyboard.TargetName="ContentGrid"
                                             Storyboard.TargetProperty="Height"
-                                            From="30"
+                                            From="15"
                                             To="0"
                                             Duration="0:0:.16" />
                                         <DoubleAnimation
@@ -212,7 +212,7 @@
                                             Storyboard.TargetName="ContentGrid"
                                             Storyboard.TargetProperty="Height"
                                             From="0"
-                                            To="30"
+                                            To="15"
                                             Duration="0:0:.16" />
                                         <DoubleAnimation
                                             Storyboard.TargetName="ContentGrid"
@@ -289,7 +289,7 @@
 
     <Style TargetType="{x:Type controls:NavigationStore}">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Width" Value="80" />
+        <Setter Property="Width" Value="60" />
         <Setter Property="Focusable" Value="False" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />

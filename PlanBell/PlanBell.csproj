@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows7.0</TargetFramework>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>wpfui-icon.ico</ApplicationIcon>
     <Nullable>enable</Nullable>
@@ -39,11 +39,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controls\" />
     <Folder Include="Sqlsugar\Service\" />
     <Folder Include="Sqlsugar\Service\IService\" />
     <Folder Include="Style\Controls\" />
-    <Folder Include="Themes\Controls\" />
   </ItemGroup>
 
   <ItemGroup>

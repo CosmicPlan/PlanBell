@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 I:\Git\PlanBell\PlanBell\PlanBell\App.xaml
-7-855144932
+8164509419
 1282391436
-301868642584
+31-228966029
 254-1921692986
-Themes\Generic.xaml;Views\Pages\Health.xaml;Views\Pages\Home.xaml;Views\Pages\PomodoroWork.xaml;Views\Pages\SchedulePlan.xaml;Views\Pages\Settings.xaml;Views\Windows\MainWindow.xaml;
+Themes\Controls\SecondContainer.xaml;Themes\Generic.xaml;Views\Pages\Health.xaml;Views\Pages\Home.xaml;Views\Pages\PomodoroWork.xaml;Views\Pages\SchedulePlan.xaml;Views\Pages\Settings.xaml;Views\Windows\MainWindow.xaml;
 
-True
+False
 

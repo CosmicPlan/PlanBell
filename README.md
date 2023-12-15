@@ -1,4 +1,6 @@
 # PlanBell
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FCosmicPlan%2FPlanBell.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FCosmicPlan%2FPlanBell?ref=badge_shield)
+
  PlanBell(计划钟)日程安排，计划安排，番茄工作法。
 
 # 🔨主要功能/✅/❌
@@ -15,3 +17,6 @@ https://wpfui.lepo.co/documentation/getting-started.html
 https://github.com/CommunityToolkit/dotnet
 ## livecharts2
 https://livecharts.dev/docs/wpf/2.0.0-rc2/gallery
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FCosmicPlan%2FPlanBell.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FCosmicPlan%2FPlanBell?ref=badge_large)

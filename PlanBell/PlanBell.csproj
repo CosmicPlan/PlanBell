@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows7.0</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>wpfui-icon.ico</ApplicationIcon>
     <Nullable>enable</Nullable>
@@ -42,10 +42,13 @@
     <Folder Include="Sqlsugar\Service\" />
     <Folder Include="Sqlsugar\Service\IService\" />
     <Folder Include="Style\Controls\" />
+    <Folder Include="Dll\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\wpfui-2.1.0\src\Wpf.Ui\Wpf.Ui.csproj" />
+    <Reference Include="Wpf.Ui">
+      <HintPath>Dll\Wpf.Ui.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
